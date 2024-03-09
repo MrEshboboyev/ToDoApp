@@ -12,7 +12,7 @@ using ToDo.Services.TaskAPI.Data;
 namespace ToDo.Services.TaskAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240309121051_InitialCreate")]
+    [Migration("20240309124024_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -60,7 +60,7 @@ namespace ToDo.Services.TaskAPI.Migrations
                         {
                             Id = 1,
                             Description = "Draft and finalize the project proposal for client review.",
-                            DueDate = new DateTime(2024, 3, 16, 12, 10, 50, 642, DateTimeKind.Utc).AddTicks(7463),
+                            DueDate = new DateTime(2024, 3, 16, 12, 40, 23, 872, DateTimeKind.Utc).AddTicks(1950),
                             IsCompleted = false,
                             Priority = 2,
                             Title = "Complete Project Proposal"
@@ -69,7 +69,7 @@ namespace ToDo.Services.TaskAPI.Migrations
                         {
                             Id = 2,
                             Description = "Participate in the weekly team meeting to discuss project updates.",
-                            DueDate = new DateTime(2024, 3, 11, 12, 10, 50, 642, DateTimeKind.Utc).AddTicks(7510),
+                            DueDate = new DateTime(2024, 3, 11, 12, 40, 23, 872, DateTimeKind.Utc).AddTicks(1994),
                             IsCompleted = false,
                             Priority = 1,
                             Title = "Attend Team Meeting"
@@ -78,7 +78,7 @@ namespace ToDo.Services.TaskAPI.Migrations
                         {
                             Id = 3,
                             Description = "Create a presentation for the upcoming client meeting.",
-                            DueDate = new DateTime(2024, 3, 14, 12, 10, 50, 642, DateTimeKind.Utc).AddTicks(7514),
+                            DueDate = new DateTime(2024, 3, 14, 12, 40, 23, 872, DateTimeKind.Utc).AddTicks(1997),
                             IsCompleted = false,
                             Priority = 2,
                             Title = "Prepare Presentation"
