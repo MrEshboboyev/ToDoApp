@@ -1,7 +1,9 @@
-﻿namespace ToDo.Services.AuthAPI.Service.IService
+﻿using ToDo.Services.AuthAPI.Models;
+
+namespace ToDo.Services.AuthAPI.Service.IService
 {
     public interface IJwtTokenGenerator
     {
-        string GenerateToken();
+        string GenerateToken(ApplicationUser applicationUser);
     }
 }
