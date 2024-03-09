@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ToDo.Web.Models;
+using ToDo.Web.Utility;
 
 namespace ToDo.Web.Controllers
 {
@@ -20,6 +22,14 @@ namespace ToDo.Web.Controllers
         [HttpGet]
         public IActionResult Register()
         {
+            var roleList = new List<SelectListItem>()
+            {
+                new SelectListItem(){Text = SD.RoleAdmin, Value = SD.RoleAdmin},
+                new SelectListItem(){Text = SD.RoleCustomer, Value = SD.RoleCustomer}
+            };
+
+            ViewBag.RoleList = roleList;
+
             return View();
         }
 
