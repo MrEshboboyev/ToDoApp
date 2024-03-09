@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4E5023C2-9879-46F6-B7B4-508F81E5A1EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Services.TaskAPI", "ToDo.Services.TaskAPI\ToDo.Services.TaskAPI.csproj", "{0675CB81-0B4E-49A8-81BD-D0C40C3F9C47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo.Services.TaskAPI", "ToDo.Services.TaskAPI\ToDo.Services.TaskAPI.csproj", "{0675CB81-0B4E-49A8-81BD-D0C40C3F9C47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Services.AuthAPI", "ToDo.Services.AuthAPI\ToDo.Services.AuthAPI.csproj", "{37FF9DE2-0BF7-45C8-99DF-582CC9B241EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo.Services.AuthAPI", "ToDo.Services.AuthAPI\ToDo.Services.AuthAPI.csproj", "{37FF9DE2-0BF7-45C8-99DF-582CC9B241EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo.Web", "ToDo.Web\ToDo.Web.csproj", "{7544868D-3741-4E27-865B-4A8C014066B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{37FF9DE2-0BF7-45C8-99DF-582CC9B241EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37FF9DE2-0BF7-45C8-99DF-582CC9B241EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37FF9DE2-0BF7-45C8-99DF-582CC9B241EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7544868D-3741-4E27-865B-4A8C014066B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7544868D-3741-4E27-865B-4A8C014066B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7544868D-3741-4E27-865B-4A8C014066B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7544868D-3741-4E27-865B-4A8C014066B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0675CB81-0B4E-49A8-81BD-D0C40C3F9C47} = {4E5023C2-9879-46F6-B7B4-508F81E5A1EA}
 		{37FF9DE2-0BF7-45C8-99DF-582CC9B241EF} = {4E5023C2-9879-46F6-B7B4-508F81E5A1EA}
+		{7544868D-3741-4E27-865B-4A8C014066B1} = {3018ED02-9350-4063-B7E4-63271B48FEA7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7A4BCCB-6CCE-46D0-8643-6A7EA68161C5}
