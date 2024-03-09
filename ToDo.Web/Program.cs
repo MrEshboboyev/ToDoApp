@@ -1,3 +1,5 @@
+using ToDo.Web.Service;
+using ToDo.Web.Service.IService;
 using ToDo.Web.Utility;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
 SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
+
+// adding lifetime for services
+builder.Services.AddScoped<IBaseService, BaseService>();
 
 var app = builder.Build();
 
