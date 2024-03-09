@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using ToDo.Services.AuthAPI.Data;
 using ToDo.Services.AuthAPI.Models;
+using ToDo.Services.AuthAPI.Service;
+using ToDo.Services.AuthAPI.Service.IService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,9 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("ApiSettings:JwtOptions"));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+// adding service lifetime
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 
