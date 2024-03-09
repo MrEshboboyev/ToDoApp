@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -11,9 +12,9 @@ namespace ToDo.Services.AuthAPI.Service
     {
         private readonly JwtOptions _jwtOptions;
 
-        public JwtTokenGenerator(JwtOptions jwtOptions)
+        public JwtTokenGenerator(IOptions<JwtOptions> jwtOptions)
         {
-            _jwtOptions = jwtOptions;
+            _jwtOptions = jwtOptions.Value;
         }
 
         public string GenerateToken(ApplicationUser applicationUser)
@@ -22,11 +23,11 @@ namespace ToDo.Services.AuthAPI.Service
 
             var key = Encoding.ASCII.GetBytes(_jwtOptions.Secret);
 
-            var claimList = new List<Claim>
+            var claimList = new List<Claim>()
             {
                 new Claim(JwtRegisteredClaimNames.Email, applicationUser.Email),
                 new Claim(JwtRegisteredClaimNames.Sub, applicationUser.Id),
-                new Claim(JwtRegisteredClaimNames.Name, applicationUser.Name)
+                new Claim(JwtRegisteredClaimNames.Name, applicationUser.UserName)
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor()
