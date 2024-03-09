@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Razor.TagHelpers;
 using ToDo.Services.AuthAPI.Data;
 using ToDo.Services.AuthAPI.Models;
 using ToDo.Services.AuthAPI.Models.Dto;
@@ -23,6 +22,25 @@ namespace ToDo.Services.AuthAPI.Service
             _userManager = userManager;
             _roleManager = roleManager;
             _jwtTokenGenerator = jwtTokenGenerator;
+        }
+
+        public async Task<bool> AssignRole(string email, string roleName)
+        {
+            var user = _db.ApplicationUsers.FirstOrDefault(u => u.Email.ToLower() == email.ToLower());
+
+            if(user != null)
+            {
+                if(!_roleManager.RoleExistsAsync(roleName).GetAwaiter().GetResult())
+                {
+                    // if role not found, new role create with name : "_roleName"
+                    _roleManager.CreateAsync(new IdentityRole { Name = roleName}).GetAwaiter().GetResult();
+                }
+
+                await _userManager.AddToRoleAsync(user, roleName);
+                return true;
+            }
+
+            return false;
         }
 
         public async Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto)
