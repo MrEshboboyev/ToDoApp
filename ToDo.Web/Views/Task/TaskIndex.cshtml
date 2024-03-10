@@ -57,7 +57,10 @@
 							@task.Priority
 						</td>
 						<td>
-							<a asp-action="TaskDelete" asp-route-taskId="@task.Id" class="btn btn-danger">
+							<a asp-action="TaskUpdate" asp-route-id="@task.Id" class="btn btn-primary">
+								<i class="bi bi-pencil"></i>
+							</a>
+							<a asp-action="TaskDelete" asp-route-id="@task.Id" class="btn btn-danger">
 								<i class="bi bi-trash"></i>
 							</a>
 						</td>

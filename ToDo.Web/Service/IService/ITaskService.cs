@@ -5,6 +5,7 @@ namespace ToDo.Web.Service.IService
     public interface ITaskService
     {
         Task<ResponseDto?> GetTasksByUserIdAsync(string userId);
+        Task<ResponseDto?> GetTaskAsync(int id);
         Task<ResponseDto?> CreateTaskAsync(TaskDto taskDto);
         Task<ResponseDto?> DeleteTaskAsync(int taskId);
         Task<ResponseDto?> UpdateTaskAsync(TaskDto taskDto);

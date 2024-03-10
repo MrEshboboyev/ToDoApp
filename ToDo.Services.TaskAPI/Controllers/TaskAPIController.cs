@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using ToDo.Services.TaskAPI.Data;
 using ToDo.Services.TaskAPI.Models;
 using ToDo.Services.TaskAPI.Models.Dto;
@@ -44,6 +45,24 @@ namespace ToDo.Services.TaskAPI.Controllers
             return _response;
         }
 
+        [HttpGet("GetTask/{id}")]
+        public ResponseDto GetTask(int id)
+        {
+			try
+            {
+				Task obj = _db.Tasks.First(t => t.Id == id);
+
+				_response.Result = obj;
+            }
+            catch (Exception ex)
+            {
+                _response.Message = ex.Message;
+                _response.IsSuccess = false;
+            }
+
+            return _response;
+        }
+
         // create Task
         [HttpPost]
         public ResponseDto Post([FromBody] TaskDto taskDto)
@@ -66,7 +85,7 @@ namespace ToDo.Services.TaskAPI.Controllers
         }
         
         // delete Task
-        [HttpDelete]
+        [HttpDelete("{taskId}")]
         public ResponseDto Delete(int taskId)
         {
             try

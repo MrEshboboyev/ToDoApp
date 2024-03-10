@@ -51,5 +51,14 @@ namespace ToDo.Web.Service
                 Url = SD.TaskAPIBase + "/api/task/"
             });
         }
-    }
+
+		public async Task<ResponseDto?> GetTaskAsync(int id)
+		{
+			return await _baseService.SendAsync(new RequestDto
+			{
+				ApiType = ApiType.GET,
+				Url = SD.TaskAPIBase + "/api/task/GetTask/" + id
+			});
+		}
+	}
 }
