@@ -1,0 +1,71 @@
+﻿@model IEnumerable<TaskDto>
+
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h1 class="text-white">Tasks List</h1>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<div class="row pb-3">
+			<div class="col-6">
+			</div>
+			<div class="col-6 text-end">
+				<a asp-action="TaskCreate" class="btn btn-outline-primary"><i class="bi bi-plus-square"></i> Create New Task</a>
+			</div>
+		</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						Title
+					</th>
+					<th>
+						Description
+					</th>
+					<th>
+						IsCompleted
+					</th>
+					<th>
+						Due Date
+					</th>
+					<th>
+						Priority
+					</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var task in Model)
+				{
+					<tr>
+						<td>
+							@task.Title
+						</td>
+						<td>
+							@task.Description
+						</td>
+						<td>
+							@task.IsCompleted
+						</td>
+						<td>
+							@task.DueDate
+						</td>
+						<td>
+							@task.Priority
+						</td>
+						<td>
+							<a asp-action="TaskDelete" asp-route-taskId="@task.Id" class="btn btn-danger">
+								<i class="bi bi-trash"></i>
+							</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+
+	</div>
+
+</div>

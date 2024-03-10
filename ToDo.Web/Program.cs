@@ -10,12 +10,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient<IAuthService, AuthService>();
+builder.Services.AddHttpClient<ITaskService, TaskService>();
 SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
+SD.TaskAPIBase = builder.Configuration["ServiceUrls:TaskAPI"];
 
 // adding lifetime for services
 builder.Services.AddScoped<ITokenProvider, TokenProvider>();
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITaskService, TaskService>();
 
 // add cookie services
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
