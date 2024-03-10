@@ -7,6 +7,9 @@ namespace ToDo.Services.TaskAPI.Models
     {
         [Key]
         public int Id { get; set; }
+
+        public string? UserId { get; set; }
+
         [Required(ErrorMessage = "Title field is required!")]
         [StringLength(100, ErrorMessage = "Title should be between {2} and {1} characters", MinimumLength = 3)]
         public string Title { get; set; }
