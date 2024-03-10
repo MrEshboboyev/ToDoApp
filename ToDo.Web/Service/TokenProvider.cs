@@ -4,6 +4,13 @@ namespace ToDo.Web.Service
 {
     public class TokenProvider : ITokenProvider
     {
+        private readonly IHttpContextAccessor _contextAccessor;
+
+        public TokenProvider(IHttpContextAccessor contextAccessor)
+        {
+            _contextAccessor = contextAccessor;
+        }
+
         public void ClearToken()
         {
             throw new NotImplementedException();
