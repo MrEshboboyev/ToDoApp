@@ -54,7 +54,7 @@ namespace ToDo.Web.Controllers
             }
             else
             {
-                ModelState.AddModelError("CustomError", responseDto.Message);
+                TempData["error"] = responseDto.Message;
                 return View(obj);
             }
         }
@@ -91,6 +91,10 @@ namespace ToDo.Web.Controllers
                     TempData["success"] = "Registration Successfully!";
                     return RedirectToAction(nameof(Login));
                 }
+            }
+            else
+            {
+                TempData["error"] = result.Message;
             }
 
             var roleList = new List<SelectListItem>()
