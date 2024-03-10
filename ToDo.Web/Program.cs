@@ -12,6 +12,7 @@ builder.Services.AddHttpClient<IAuthService, AuthService>();
 SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
 
 // adding lifetime for services
+builder.Services.AddScoped<ITokenProvider, TokenProvider>();
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
