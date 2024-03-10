@@ -10,10 +10,12 @@ namespace ToDo.Web.Controllers
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;
+        private readonly ITokenProvider _tokenProvider;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, ITokenProvider tokenProvider)
         {
-            _authService = authService; 
+            _authService = authService;
+            _tokenProvider = tokenProvider;
         }
 
         public IActionResult Index()
@@ -36,6 +38,9 @@ namespace ToDo.Web.Controllers
             if(responseDto != null && responseDto.IsSuccess)
             {
                 LoginResponseDto loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(Convert.ToString(responseDto.Result));
+
+                // set token
+                _tokenProvider.SetToken(loginResponseDto.Token);
 
                 return RedirectToAction("Index", "Home");   
             }
