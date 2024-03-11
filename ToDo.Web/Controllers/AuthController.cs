@@ -50,7 +50,7 @@ namespace ToDo.Web.Controllers
                 // set token
                 _tokenProvider.SetToken(loginResponseDto.Token);
 
-                return RedirectToAction("Index", "Home");   
+                return RedirectToAction("TaskIndex", "Task");   
             }
             else
             {
@@ -113,7 +113,7 @@ namespace ToDo.Web.Controllers
         {
             await HttpContext.SignOutAsync();
             _tokenProvider.ClearToken();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(nameof(Login));
         }
 
         private async Task SignInUser(LoginResponseDto model)
